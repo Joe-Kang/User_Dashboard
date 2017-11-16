@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <nav class="nav offset-1">
+        <h2>Test App</h2>
+        <a class="nav-link active offset-1" href="/">Home</a>
+        <a class="nav-link active offset-5" href="">Sign In</a>
+    </nav>
+    <hr>
+    <div class="offset-1">
+        <h1>Sign In</h1>
+        <div class="form-group col-6">
+            <form action="/login" method="post">{% csrf_token %}
+                <label for="email">Email:</label>
+                <input type="text" class="form-control" name="email">
+                <label for="password">Password:</label>
+                <input type="text" class="form-control" name="password">
+                <input type="submit" class="btn btn-primary" value="Login">
+            </form>
+            <a href="/register">Don't have an account? Register.</a>
+        </div>
+    </div>
+</body>
+
+</html>
