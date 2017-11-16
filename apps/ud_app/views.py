@@ -15,13 +15,19 @@ def signin(request):
     if type(errors) == list:
         for err in errors:
             error(request, err)
-        return redirect('/signin')
+        return redirect('/signinPage')
+    return redirect('/signinPage')
+
+def registerPage(request):
+    return render(request, 'ud_app/register.html')
+
+def register(request):
+    errors = User.objects.validate_registration(request.POST)
+    if type(errors) == list:
+        for err in errors:
+            error(request, err)
+        return redirect('/registerPage')
     context = {
         'user': User.objects.get(email=request.POST['email'])
     }
-    try: 
-        request.session['user']
-    except KeyError:
-        request.session['words'] = ['']
-    request.session['user'] = User.objects.get(email=request.POST['email'])
-    return redirect('/')
+    return redirect('/signinPage')

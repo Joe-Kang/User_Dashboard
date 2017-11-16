@@ -27,18 +27,24 @@
     </nav>
     <hr>
     <div class="offset-1">
-        <h1>Sign In</h1>
-        <div class="form-group col-6">
-            <form action="/signin" method="post">{% csrf_token %}
+        <h1>Registration</h1>
+        <div class="form-group col-8">
+            <form action="/register" method="post">{% csrf_token %}
+                <label for="fname">First Name:</label>
+                <input type="text" class="form-control" name="fname">
+                <label for="lname">Last Name:</label>
+                <input type="text" class="form-control" name="lname">
                 <label for="email">Email:</label>
                 <input type="text" class="form-control" name="email">
                 <label for="password">Password:</label>
                 <input type="text" class="form-control" name="password">
-                <input type="submit" class="btn btn-primary" value="Login">
+                <label for="pw_confirm">Confirm Password:</label>
+                <input type="text" class="form-control" name="pw_confirm">
+                <input type="submit" class="btn btn-primary" value="Register">
             </form>
-            <a href="/registerPage">Don't have an account? Register.</a>
         </div>
     </div>
+
 </body>
 
 </html>
